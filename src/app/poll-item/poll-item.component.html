@@ -5,9 +5,11 @@
       {{ item.title }}
       <span class="badge badge-warning" *ngIf="item.isPremium">Premium</span>
     </h5>
+    <hr />
+    <h5>Votes: {{ item.voteCount }}</h5>
     <p class="card-text">
       {{ item.description }}
     </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a class="btn btn-primary" (click)="clickHandler()">Vote</a>
   </div>
 </div>

@@ -3,4 +3,5 @@ export class PollItem {
   title: string;
   description: string;
   isPremium: boolean;
+  voteCount = 0;
 }
