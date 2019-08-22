@@ -5,7 +5,11 @@ import {
   SimpleChanges,
   ViewChild,
   ElementRef,
-  AfterViewInit
+  AfterViewInit,
+  Input,
+  Output,
+  EventEmitter,
+  DoCheck
 } from '@angular/core';
 
 @Component({
@@ -13,21 +17,12 @@ import {
   templateUrl: './playground.component.html',
   styleUrls: ['./playground.component.css']
 })
-export class PlaygroundComponent implements OnInit, OnChanges, AfterViewInit {
+export class PlaygroundComponent implements OnInit {
   state = 'Something';
-  @ViewChild('message', { static: false }) el: ElementRef;
 
   constructor() {}
 
   ngOnInit() {}
-
-  ngAfterViewInit(): void {
-    // this.el.nativeElement.value = 'Input Field';
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('change!');
-  }
 
   handler(args) {
     console.log(args);
