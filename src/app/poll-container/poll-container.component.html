@@ -1,7 +1,7 @@
 <h4>Total votes so far: {{ totalCount }}</h4>
 
 <div class="row">
-  <div class="col" *ngFor="let item of pollItemCollection">
+  <div class="col" *ngFor="let item of items">
     <app-poll-item
       [item]="item"
       (onVoted)="parentHandler($event)"
