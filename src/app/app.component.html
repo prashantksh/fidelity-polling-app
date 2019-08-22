@@ -4,7 +4,6 @@
   <app-poll-container></app-poll-container>
 </div> -->
 
-<app-playground
-  [prop]="original"
-  (changeStateEvent)="parentHandler()"
-></app-playground>
+<app-playground [prop]="original" (changeStateEvent)="parentHandler()">
+  <h2 class="text-success">Header from the parent</h2>
+</app-playground>

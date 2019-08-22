@@ -17,17 +17,19 @@ import {
   templateUrl: './playground.component.html',
   styleUrls: ['./playground.component.css']
 })
-export class PlaygroundComponent implements OnInit, OnChanges {
+export class PlaygroundComponent implements OnInit, DoCheck {
   state = 'Something';
   @Input() prop;
   @Output() changeStateEvent = new EventEmitter();
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('OnInit');
+  }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('Changes!', changes);
+  ngDoCheck(): void {
+    console.log('checked');
   }
 
   handler(args) {
@@ -37,5 +39,20 @@ export class PlaygroundComponent implements OnInit, OnChanges {
   clickHandler() {
     this.changeStateEvent.emit();
     console.log('clicked');
+  }
+
+  getCssClasses(): Object {
+    return {
+      'text-success': true,
+      'text-danger': false,
+      'font-weight-bold': true
+    };
+  }
+
+  getStyles(): Object {
+    return {
+      color: '#5427db',
+      'font-size': '45px'
+    };
   }
 }

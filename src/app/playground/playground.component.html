@@ -1,7 +1,9 @@
-<h2 [textContent]="message.value"></h2>
+<p [ngClass]="getCssClasses()">Child Header</p>
+<hr />
+<p [ngStyle]="getStyles()">Child Styler</p>
 
-<h2>I got: {{ prop.today }}</h2>
+<!--
+<button class="btn btn-primary" (click)="clickHandler()">Click Me!</button> -->
 
-<button class="btn btn-primary" (click)="clickHandler()">Click Me!</button>
-
-<input type="text" #message class="form-control" value="Html Value" />
+<input type="text" #message class="form-control" (input)="(0)" />
+<!-- <ng-content></ng-content> -->
