@@ -9,4 +9,10 @@ export class AppComponent {
   original: any = {
     today: new Date()
   };
+
+  parentHandler() {
+    this.original = {
+      today: 'I do not know'
+    };
+  }
 }

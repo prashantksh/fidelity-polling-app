@@ -20,6 +20,7 @@ import {
 export class PlaygroundComponent implements OnInit, OnChanges {
   state = 'Something';
   @Input() prop;
+  @Output() changeStateEvent = new EventEmitter();
 
   constructor() {}
 
@@ -34,6 +35,7 @@ export class PlaygroundComponent implements OnInit, OnChanges {
   }
 
   clickHandler() {
+    this.changeStateEvent.emit();
     console.log('clicked');
   }
 }

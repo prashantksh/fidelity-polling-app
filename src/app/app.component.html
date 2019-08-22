@@ -4,4 +4,7 @@
   <app-poll-container></app-poll-container>
 </div> -->
 
-<app-playground [prop]="original"></app-playground>
+<app-playground
+  [prop]="original"
+  (changeStateEvent)="parentHandler()"
+></app-playground>
