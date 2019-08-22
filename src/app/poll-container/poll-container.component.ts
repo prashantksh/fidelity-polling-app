@@ -38,6 +38,10 @@ export class PollContainerComponent implements OnInit {
 
   ngOnInit() {}
 
+  parentHandler(val) {
+    console.log('Parent Handler', val);
+  }
+
   get totalCount(): number {
     let total = 0;
     this.pollItemCollection.forEach(p => {

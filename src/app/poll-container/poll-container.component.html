@@ -2,6 +2,9 @@
 
 <div class="row">
   <div class="col" *ngFor="let item of pollItemCollection">
-    <app-poll-item [item]="item"></app-poll-item>
+    <app-poll-item
+      [item]="item"
+      (onVoted)="parentHandler($event)"
+    ></app-poll-item>
   </div>
 </div>
