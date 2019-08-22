@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PollItem } from '../../_models/poll-item.model';
+import { PollService } from '../_services/poll.service';
 
 @Component({
   selector: 'app-poll-item',
@@ -10,12 +11,11 @@ export class PollItemComponent implements OnInit {
   @Input() item: PollItem;
   @Output() onVoted = new EventEmitter();
 
-  constructor() {}
+  constructor(private pollService: PollService) {}
 
   ngOnInit() {}
 
-  clickHandler() {
-    this.onVoted.emit({ today: new Date() });
-    this.item.voteCount++;
+  clickHandler(item) {
+    this.pollService.onVote(item);
   }
 }

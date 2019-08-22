@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PollItem } from 'src/_models/poll-item.model';
 import { PollService } from '../_services/poll.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-poll-container',
@@ -8,14 +9,25 @@ import { PollService } from '../_services/poll.service';
   styleUrls: ['./poll-container.component.css']
 })
 export class PollContainerComponent implements OnInit {
-  items: PollItem[];
+  items$: Observable<PollItem[]>;
   totalCount: number;
 
   constructor(private pollService: PollService) {}
 
   ngOnInit() {
-    this.items = this.pollService.pollItems;
-    this.totalCount = this.pollService.totalCount;
+    this.items$ = this.pollService.pollItems;
+    this.pollService.totalCount.subscribe(data => (this.totalCount = data));
+  }
+
+  getTotalCount(): Observable<number> {
+    let total = 0;
+    this.pollService.pollItems.subscribe(p => {
+      p.forEach(i => {
+        total += i.voteCount;
+      });
+    });
+
+    return of(total);
   }
 
   parentHandler(val) {

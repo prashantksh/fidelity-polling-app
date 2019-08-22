@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PollItem } from 'src/_models/poll-item.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,18 +33,24 @@ export class PollService {
     }
   ];
 
-  get pollItems(): PollItem[] {
-    return this.pollItemCollection;
+  get pollItems(): Observable<PollItem[]> {
+    return of(this.pollItemCollection);
+  }
+
+  onVote(item: PollItem) {
+    let pi = this.pollItemCollection.find(p => p === item);
+    pi.voteCount++;
   }
 
   constructor() {}
 
-  get totalCount(): number {
+  get totalCount(): Observable<number> {
+    console.log('called');
     let total = 0;
     this.pollItemCollection.forEach(p => {
       total += +p.voteCount;
     });
 
-    return total;
+    return of(total);
   }
 }
