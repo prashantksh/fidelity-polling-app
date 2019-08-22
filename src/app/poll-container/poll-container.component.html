@@ -1,10 +1,7 @@
-<h4>Total votes so far: {{ getTotalCount() | async }}</h4>
+<h4>Total votes so far: {{ totalCount$ | async }}</h4>
 
 <div class="row">
   <div class="col" *ngFor="let item of items$ | async">
-    <app-poll-item
-      [item]="item"
-      (onVoted)="parentHandler($event)"
-    ></app-poll-item>
+    <app-poll-item [item]="item"></app-poll-item>
   </div>
 </div>

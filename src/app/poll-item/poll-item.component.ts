@@ -17,5 +17,6 @@ export class PollItemComponent implements OnInit {
 
   clickHandler(item) {
     this.pollService.onVote(item);
+    this.onVoted.emit();
   }
 }

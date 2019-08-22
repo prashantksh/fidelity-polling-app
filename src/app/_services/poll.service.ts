@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, DoCheck, OnChanges } from '@angular/core';
 import { PollItem } from 'src/_models/poll-item.model';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject, Subject, interval } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -33,24 +34,25 @@ export class PollService {
     }
   ];
 
+  total = new BehaviorSubject(this.totalCount);
+
   get pollItems(): Observable<PollItem[]> {
     return of(this.pollItemCollection);
   }
 
   onVote(item: PollItem) {
-    let pi = this.pollItemCollection.find(p => p === item);
+    const pi = this.pollItemCollection.find(p => p === item);
     pi.voteCount++;
+    this.total.next(this.totalCount);
   }
 
   constructor() {}
 
-  get totalCount(): Observable<number> {
-    console.log('called');
+  get totalCount() {
     let total = 0;
     this.pollItemCollection.forEach(p => {
       total += +p.voteCount;
     });
-
-    return of(total);
+    return total;
   }
 }
