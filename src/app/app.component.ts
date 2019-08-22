@@ -11,8 +11,6 @@ export class AppComponent {
   };
 
   parentHandler() {
-    this.original = {
-      today: 'I do not know'
-    };
+    this.original.today = 'Mutation';
   }
 }
