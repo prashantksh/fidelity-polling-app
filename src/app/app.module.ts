@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { PollContainerComponent } from './poll-container/poll-container.component';
 import { PollItemComponent } from './poll-item/poll-item.component';
+import { PlaygroundComponent } from './playground/playground.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     PollContainerComponent,
-    PollItemComponent
+    PollItemComponent,
+    PlaygroundComponent
   ],
   imports: [
     BrowserModule
