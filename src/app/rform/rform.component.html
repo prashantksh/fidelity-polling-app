@@ -14,6 +14,16 @@
       name="title"
       formControlName="title"
     />
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="pollForm.controls['title'].errors?.minlength"
+    >
+      Title has to be
+      {{ pollForm.controls['title'].errors?.minlength.requiredLength }} but you
+      supplied
+      {{ pollForm.controls['title'].errors?.minlength.actualLength }}
+    </div>
   </div>
 
   <div class="form-group">
