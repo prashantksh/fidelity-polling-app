@@ -10,7 +10,7 @@ import { PollService } from '../_services/poll.service';
 })
 export class TformComponent implements OnInit {
   pollItem: PollItem = new PollItem();
-  groups$: Observable<Object>;
+  groups$: Observable<string[]>;
 
   constructor(private pollService: PollService) {
     this.groups$ = this.pollService.groups;

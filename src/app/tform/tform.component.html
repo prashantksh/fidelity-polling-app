@@ -47,9 +47,7 @@
       [(ngModel)]="pollItem.group"
       required
     >
-      <option *ngFor="let g of (groups$ | async).groups" value="g">{{
-        g
-      }}</option>
+      <option *ngFor="let g of groups$ | async" value="g">{{ g }}</option>
     </select>
   </div>
 

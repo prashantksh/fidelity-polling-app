@@ -18,8 +18,10 @@ export class PollService {
     >;
   }
 
-  get groups(): Observable<Object> {
-    return this.http.get('http://localhost:3000/api/groups');
+  get groups(): Observable<string[]> {
+    return this.http
+      .get('http://localhost:3000/api/groups')
+      .pipe(map(g => g['groups'])) as Observable<string[]>;
   }
 
   createPollItem(item) {
