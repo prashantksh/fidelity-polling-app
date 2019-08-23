@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PollItem } from 'src/_models/poll-item.model';
+import { Observable } from 'rxjs';
+import { PollService } from '../_services/poll.service';
 
 @Component({
   selector: 'app-tform',
@@ -8,8 +10,11 @@ import { PollItem } from 'src/_models/poll-item.model';
 })
 export class TformComponent implements OnInit {
   pollItem: PollItem = new PollItem();
+  groups$: Observable<Object>;
 
-  constructor() {}
+  constructor(private pollService: PollService) {
+    this.groups$ = this.pollService.groups;
+  }
 
   ngOnInit() {}
 }
