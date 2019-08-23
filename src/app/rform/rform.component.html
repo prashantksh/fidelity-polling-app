@@ -24,6 +24,13 @@
       supplied
       {{ pollForm.controls['title'].errors?.minlength.actualLength }}
     </div>
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="pollForm.controls['title'].errors?.title_error"
+    >
+      Title error by async validator
+    </div>
   </div>
 
   <div class="form-group">
