@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -9,6 +10,8 @@ import { PollItemComponent } from './poll-item/poll-item.component';
 import { PlaygroundComponent } from './playground/playground.component';
 import { TformComponent } from './tform/tform.component';
 import { RformComponent } from './rform/rform.component';
+import { ROUTES } from './_routes/routes';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,15 @@ import { RformComponent } from './rform/rform.component';
     PollItemComponent,
     PlaygroundComponent,
     TformComponent,
-    RformComponent
+    RformComponent,
+    NotFoundComponent
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES)
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
