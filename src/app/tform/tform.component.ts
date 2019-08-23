@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PollItem } from 'src/_models/poll-item.model';
 
 @Component({
   selector: 'app-tform',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tform.component.css']
 })
 export class TformComponent implements OnInit {
+  pollItem: PollItem = new PollItem();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -3,22 +3,45 @@
 <form #f="ngForm">
   <div class="form-group">
     <label for="id">Id</label>
-    <input type="number" class="form-control" name="id" />
+    <input
+      type="number"
+      class="form-control"
+      name="id"
+      [(ngModel)]="pollItem.id"
+      required
+    />
   </div>
 
   <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" class="form-control" name="title" />
+    <input
+      type="text"
+      class="form-control"
+      name="title"
+      [(ngModel)]="pollItem.title"
+      minlength="5"
+    />
   </div>
 
   <div class="form-group">
     <label for="description">Description</label>
-    <input type="text" class="form-control" name="description" />
+    <input
+      type="text"
+      class="form-control"
+      name="description"
+      [(ngModel)]="pollItem.description"
+      maxlength="25"
+    />
   </div>
 
   <div class="form-group">
     <label for="group">Group</label>
-    <select name="group" class="form-control">
+    <select
+      name="group"
+      class="form-control"
+      [(ngModel)]="pollItem.group"
+      required
+    >
       <option value="Development">Development</option>
       <option value="Marketing">Marketing</option>
       <option value="Operations">Operations</option>
@@ -27,7 +50,14 @@
 
   <div class="form-group">
     <label for="imageUrl">Image URL</label>
-    <input type="text" class="form-control" name="imageUrl" />
+    <input
+      type="text"
+      class="form-control"
+      name="imageUrl"
+      [(ngModel)]="pollItem.imageUrl"
+    />
   </div>
   <button class="btn btn-success mt-4" type="submit">Submit</button>
 </form>
+
+<p>{{ f.value | json }}</p>
