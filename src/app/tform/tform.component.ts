@@ -17,4 +17,10 @@ export class TformComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  onSubmit(item) {
+    this.pollService.createPollItem(item).subscribe(response => {
+      console.log('Server:', response);
+    });
+  }
 }

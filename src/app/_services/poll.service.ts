@@ -22,6 +22,10 @@ export class PollService {
     return this.http.get('http://localhost:3000/api/groups');
   }
 
+  createPollItem(item) {
+    return this.http.post('http://localhost:3000/api/create', item);
+  }
+
   onVote(item: PollItem) {
     // const pi = this.pollItemCollection.find(p => p === item);
     // pi.voteCount++;

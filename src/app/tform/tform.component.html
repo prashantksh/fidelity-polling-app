@@ -1,6 +1,6 @@
 <h3>Enter a Poll Item: Template Form</h3>
 <hr />
-<form #f="ngForm">
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
   <div class="form-group">
     <label for="id">Id</label>
     <input
