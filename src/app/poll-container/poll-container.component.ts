@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PollItem } from 'src/_models/poll-item.model';
 import { PollService } from '../_services/poll.service';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-poll-container',

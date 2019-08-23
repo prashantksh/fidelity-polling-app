@@ -1,7 +1,6 @@
-import { Injectable, DoCheck, OnChanges } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { PollItem } from 'src/_models/poll-item.model';
-import { Observable, of, BehaviorSubject, Subject, interval } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
